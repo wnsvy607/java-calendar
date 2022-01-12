@@ -35,7 +35,7 @@ public class Calendar {
 			if(cal.getMaxDaysOfMonth(month) != 0)
 				System.out.printf("%d월은 %d일까지 있습니다.\n", month, cal.getMaxDaysOfMonth(month));
 			else
-				System.out.printf("유효하지 않은 숫자입니다.\n");
+				System.out.printf("유효하지 않은 숫자입니다. (1~12 입력)\n");
 		}
 		cal.printSampleCalendar();
 		in.close();
