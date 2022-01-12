@@ -7,6 +7,9 @@ public class Prompt {
 	public void runPrompt() {
 		Scanner in = new Scanner(System.in);
 		Calendar calendar = new Calendar();
+		System.out.println("년을 입력하세요.");
+		System.out.print(">");
+		int year = in.nextInt();
 
 		int month = 0;
 		while (month != -1) {
@@ -19,7 +22,7 @@ public class Prompt {
 				System.out.printf("유효하지 않은 숫자입니다. (1~12 입력)\n");
 				continue;
 			} else
-				calendar.printCalendar(month);
+				calendar.printCalendar(year, month);
 		}
 		System.out.printf("종료");
 		in.close();
