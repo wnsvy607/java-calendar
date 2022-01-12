@@ -1,5 +1,6 @@
 package jp.calendar;
 
+import java.time.Month;
 import java.util.Scanner;
 
 public class Calendar {
@@ -7,7 +8,7 @@ public class Calendar {
 	private static final int[] MAX_DAYS = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
 	public int getMaxDaysOfMonth(int month) {
-		if(month < 1 || month >12)
+		if (month < 1 || month > 12)
 			return 0;
 		return MAX_DAYS[month - 1];
 	}
@@ -26,18 +27,21 @@ public class Calendar {
 		Scanner in = new Scanner(System.in);
 		Calendar cal = new Calendar();
 
-		System.out.println("반복횟수를 입력하세요.");
-		int num = in.nextInt();
-
-		for (int i = 0; i < num; i++) {
+		int month = 0;
+		while(month != -1 ) {
 			System.out.println("월을 입력하세요.");
 			System.out.print(prompt);
-			int month = in.nextInt();
-			if(cal.getMaxDaysOfMonth(month) != 0)
+			month = in.nextInt();
+			if (cal.getMaxDaysOfMonth(month) != 0)
 				System.out.printf("%d월은 %d일까지 있습니다.\n", month, cal.getMaxDaysOfMonth(month));
-			else
+			else if(month == -1) 
+				break;
+			else {
 				System.out.printf("유효하지 않은 숫자입니다. (1~12 입력)\n");
-		}
+				continue;
+			}
+		} 
+		
 		cal.printSampleCalendar();
 		in.close();
 	}
